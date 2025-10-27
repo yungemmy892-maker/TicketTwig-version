@@ -1,8 +1,10 @@
 services:
   - type: web
     name: tickettwig
-    env: docker
+    env: php
     plan: free
-    dockerfilePath: Dockerfile
+    buildCommand: "composer install --no-dev"
+    startCommand: "php -S 0.0.0.0:8080 -t public"
+    envVars:
       - key: PHP_VERSION
-        value: 8080
+        value: "8.3"
