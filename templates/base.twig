@@ -7,7 +7,7 @@
     <meta name="keywords" content="ticket management, twig, php, HNG Stage 2">
     <meta name="author" content="Frontend Wizards Participant">
     <title>{% block title %}TicketFlow - Ticket Management{% endblock %}</title>
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <link rel="stylesheet" href="{{ absolute_url('/css/styles.css') }}">
     {% block head %}{% endblock %}
 </head>
 <body>
@@ -18,4 +18,5 @@
     <script src="{{ asset('js/app.js') }}"></script>
     {% block scripts %}{% endblock %}
 </body>
+
 </html>
