@@ -7,7 +7,7 @@ use Twig\Loader\FilesystemLoader;
 $loader = new FilesystemLoader(__DIR__ . '/../templates');
 $twig = new Environment($loader);
 
-echo $twig->render('home.twig', ['title' => 'TicketTwig']);
+echo $twig->render('base.twig', ['name' => 'TicketTwig User']);
 
 // Start session
 session_start();
@@ -146,3 +146,4 @@ try {
     exit;
 
 }
+
