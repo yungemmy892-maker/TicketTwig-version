@@ -2,4 +2,4 @@
 composer.lock
 .DS_Store
 *.log
-```
+echo "/vendor/" >> .gitignore
