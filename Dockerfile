@@ -1,25 +1,27 @@
-# Use official PHP 8.2 image with Apache
+# Use PHP with Apache
 FROM php:8.2-apache
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    git \
-    curl \
-    libpng-dev \
-    libonig-dev \
-    libxml2-dev \
-    zip \
-    unzip \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+# Install necessary PHP extensions
+RUN docker-php-ext-install pdo pdo_mysql
 
-# Install PHP extensions
-RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
-
-# Copy the latest Composer binary
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+# Enable Apache modules
+RUN a2enmod rewrite
 
 # Set working directory
 WORKDIR /var/www/html
+
+# Copy project files into container
+COPY . /var/www/html
+
+# Ensure proper permissions
+RUN chown -R www-data:www-data /var/www/html
+
+# Add default DirectoryIndex (this fixes the 403 error)
+RUN echo "DirectoryIndex index.php index.html" >> /etc/apache2/apache2.conf
+
+# Expose port 80
+EXPOSE 80
+
 
 # Copy project files to container
 COPY . .
