@@ -1,16 +1,18 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Twig\Environment;
-use Twig\Loader\FilesystemLoader;
-
-$loader = new FilesystemLoader(__DIR__ . '/../templates');
-$twig = new Environment($loader);
-
-echo $twig->render('base.twig', ['name' => 'TicketTwig User']);
-
-// Start session
 session_start();
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/../templates');
+$twig = new \Twig\Environment($loader, [
+    'debug' => true,
+    'cache' => false,
+]);
+
+echo $twig->render('base.twig', [
+    'name' => 'TicketTwig User'
 
 $requestUri = $_SERVER['REQUEST_URI'];
 $path = parse_url($requestUri, PHP_URL_PATH);
@@ -146,4 +148,5 @@ try {
     exit;
 
 }
+
 
