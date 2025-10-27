@@ -6,14 +6,15 @@ session_start();
 require_once __DIR__ . '/../vendor/autoload.php';
 
 $loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/../templates');
-$twig = new \Twig\Environment($loader, [
-    'debug' => true,
-    'cache' => false,
-]);
+$twig = new \Twig\Environment($loader);
 
-echo $twig->render('base.twig', [
-    'name' => 'TicketTwig User'
+// Simple data to pass to template
+$data = [
+    'name' => 'TicketTwig User',
+    'title' => 'Welcome to TicketTwig'
+];
 
+echo $twig->render('base.twig', $data);
 $requestUri = $_SERVER['REQUEST_URI'];
 $path = parse_url($requestUri, PHP_URL_PATH);
 
@@ -148,5 +149,6 @@ try {
     exit;
 
 }
+
 
 
