@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: twig-test
+    env: php
+    buildCommand: |
+      composer install
+    startCommand: |
+      php -S 0.0.0.0:10000 -t public
+    envVars:
+      - key: PHP_VERSION
+        value: 8.2
