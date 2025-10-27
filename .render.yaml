@@ -1,11 +1,9 @@
 services:
   - type: web
-    name: twig-test
-    env: php
+    name: ticket-twig
+    env: docker
+    plan: free
     buildCommand: |
-      composer install
-    startCommand: |
-      php -S 0.0.0.0:10000 -t public
-    envVars:
-      - key: PHP_VERSION
-        value: 8.2
+      apt-get update && apt-get install -y php8.2 php8.2-cli php8.2-common php8.2-mbstring php8.2-xml php8.2-curl composer
+      composer install --no-dev
+    startCommand: php -S 0.0.0.0:10000 -t public
