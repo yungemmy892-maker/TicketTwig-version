@@ -7,4 +7,4 @@ services:
     startCommand: "php -S 0.0.0.0:10000 -t public"
     envVars:
       - key: PHP_VERSION
-        value: 8.2
+        value: 8.3
