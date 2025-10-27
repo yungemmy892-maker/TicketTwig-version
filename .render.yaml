@@ -1,7 +1,7 @@
 services:
   - type: web
     name: tickettwig
-    env: docker
+    env: php
     plan: free
-    dockerfilePath: Dockerfile
-    port: 80
+    buildCommand: "composer install --no-dev"
+    startCommand: "php -S 0.0.0.0:8080 public/index.php"
