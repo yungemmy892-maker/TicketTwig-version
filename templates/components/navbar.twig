@@ -1,0 +1,52 @@
+<nav class="navbar">
+    <div class="container">
+        <div class="navbar-content">
+            <a href="?page={{ isAuthenticated ? 'dashboard' : 'landing' }}" class="navbar-brand">
+                TicketFlow
+            </a>
+
+            <!-- Desktop Navigation -->
+            <div class="navbar-links">
+                {% if not isAuthenticated %}
+                    <a href="?page=landing" class="nav-link">Home</a>
+                    <a href="?page=login" class="btn btn-text">Login</a>
+                    <a href="?page=signup" class="btn btn-primary">Sign Up</a>
+                {% else %}
+                    <a href="?page=dashboard" class="nav-link {{ currentPage == 'dashboard' ? 'active' : '' }}">
+                        Dashboard
+                    </a>
+                    <a href="?page=tickets" class="nav-link {{ currentPage == 'tickets' ? 'active' : '' }}">
+                        Tickets
+                    </a>
+                    <a href="?page=logout" class="btn btn-outline">
+                        Logout
+                    </a>
+                {% endif %}
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span>☰</span>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div class="mobile-menu">
+            {% if not isAuthenticated %}
+                <a href="?page=landing" class="mobile-nav-link">Home</a>
+                <a href="?page=login" class="mobile-nav-link">Login</a>
+                <a href="?page=signup" class="mobile-nav-link">Sign Up</a>
+            {% else %}
+                <a href="?page=dashboard" class="mobile-nav-link {{ currentPage == 'dashboard' ? 'active' : '' }}">
+                    Dashboard
+                </a>
+                <a href="?page=tickets" class="mobile-nav-link {{ currentPage == 'tickets' ? 'active' : '' }}">
+                    Tickets
+                </a>
+                <a href="?page=logout" class="mobile-nav-link logout">
+                    Logout
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</nav>

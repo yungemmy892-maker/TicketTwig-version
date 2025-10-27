@@ -1,0 +1,54 @@
+{% extends "base.twig" %}
+
+{% block title %}TicketFlow - Manage Your Tickets Efficiently{% endblock %}
+
+{% block content %}
+<div class="page">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="decorative-circle circle-1"></div>
+                <div class="decorative-circle circle-2"></div>
+                <h1 class="hero-title">TicketFlow</h1>
+                <p class="hero-subtitle">
+                    Manage your support tickets efficiently with our intuitive platform
+                </p>
+                <div class="hero-buttons">
+                    <a href="?page=login" class="btn btn-primary">Login</a>
+                    <a href="?page=signup" class="btn btn-secondary">Get Started</a>
+                </div>
+            </div>
+        </div>
+        <svg class="wave" viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <path fill="currentColor" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" />
+        </svg>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose TicketFlow?</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Easy Management</h3>
+                    <p>Create, update, and track tickets with ease</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Real-time Updates</h3>
+                    <p>Get instant notifications on ticket status changes</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure & Private</h3>
+                    <p>Your data is protected with industry-standard security</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% include 'components/footer.twig' %}
+</div>
+{% endblock %}

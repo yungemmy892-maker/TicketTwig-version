@@ -1,0 +1,655 @@
+/* ===================================
+   TicketFlow - Twig/PHP Version
+   Main Stylesheet
+   =================================== */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { 
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+  line-height: 1.6; 
+  color: #333; 
+}
+
+.page { min-height: 100vh; display: flex; flex-direction: column; }
+
+.container { max-width: 1440px; margin: 0 auto; padding: 0 2rem; width: 100%; }
+
+/* ===================================
+   Navbar Styles
+   =================================== */
+
+.navbar { 
+  background: white; 
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+  padding: 1rem 0; 
+  position: sticky; 
+  top: 0; 
+  z-index: 100; 
+}
+
+.navbar-content { display: flex; justify-content: space-between; align-items: center; }
+
+.navbar-brand { 
+  font-size: 1.5rem; 
+  font-weight: 700; 
+  color: #667eea; 
+  cursor: pointer; 
+  transition: color 0.3s;
+  text-decoration: none;
+}
+
+.navbar-brand:hover { color: #5a67d8; }
+
+.navbar-links { display: flex; gap: 1rem; align-items: center; }
+
+.nav-link { 
+  background: none; 
+  border: none; 
+  color: #4a5568; 
+  cursor: pointer; 
+  font-size: 1rem; 
+  font-weight: 500; 
+  padding: 0.5rem 1rem; 
+  transition: color 0.3s; 
+  position: relative;
+  text-decoration: none;
+}
+
+.nav-link:hover { color: #667eea; }
+
+.nav-link.active { color: #667eea; }
+
+.nav-link.active::after { 
+  content: ''; 
+  position: absolute; 
+  bottom: 0; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  width: 60%; 
+  height: 2px; 
+  background: #667eea; 
+}
+
+.mobile-menu-btn { 
+  display: none; 
+  background: none; 
+  border: none; 
+  cursor: pointer; 
+  padding: 0.5rem; 
+  color: #4a5568; 
+  font-size: 1.5rem;
+}
+
+.mobile-menu { display: none; }
+
+.mobile-menu.active { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 0.5rem; 
+  padding: 1rem 0; 
+  border-top: 1px solid #e2e8f0; 
+  margin-top: 1rem; 
+}
+
+.mobile-nav-link { 
+  background: none; 
+  border: none; 
+  padding: 1rem; 
+  text-align: left; 
+  font-size: 1rem; 
+  color: #4a5568; 
+  cursor: pointer; 
+  border-radius: 8px; 
+  transition: background 0.3s;
+  text-decoration: none;
+  display: block;
+}
+
+.mobile-nav-link:hover { background: #f7fafc; }
+
+.mobile-nav-link.active { background: #667eea; color: white; }
+
+.mobile-nav-link.logout { color: #e53e3e; }
+
+@media (max-width: 768px) {
+  .navbar-links { display: none; }
+  .mobile-menu-btn { display: block; }
+}
+
+/* ===================================
+   Buttons
+   =================================== */
+
+.btn { 
+  padding: 0.75rem 1.5rem; 
+  border: none; 
+  border-radius: 8px; 
+  font-size: 1rem; 
+  font-weight: 600; 
+  cursor: pointer; 
+  transition: all 0.3s; 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 0.5rem; 
+  font-family: inherit;
+  text-decoration: none;
+}
+
+.btn-primary { background: #667eea; color: white; }
+
+.btn-primary:hover { 
+  background: #5a67d8; 
+  transform: translateY(-2px); 
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3); 
+}
+
+.btn-secondary { background: white; color: #667eea; }
+
+.btn-outline { background: transparent; border: 2px solid currentColor; color: #667eea; }
+
+.btn-outline:hover { background: rgba(102, 126, 234, 0.1); }
+
+.btn-text { background: none; border: none; color: #667eea; padding: 0.5rem 1rem; }
+
+.btn-full { width: 100%; justify-content: center; }
+
+.btn-icon { 
+  background: none; 
+  border: none; 
+  cursor: pointer; 
+  padding: 0.5rem; 
+  border-radius: 4px; 
+  color: #667eea; 
+  transition: all 0.2s; 
+}
+
+.btn-icon:hover { background: #f7fafc; }
+
+.btn-icon.delete { color: #e53e3e; }
+
+.btn-icon.delete:hover { background: #fff5f5; }
+
+.link-btn { 
+  background: none; 
+  border: none; 
+  color: #667eea; 
+  cursor: pointer; 
+  font-weight: 600; 
+  text-decoration: underline; 
+  font-family: inherit; 
+}
+
+/* ===================================
+   Hero Section
+   =================================== */
+
+.hero { 
+  position: relative; 
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+  color: white; 
+  padding: 8rem 0 12rem; 
+  overflow: hidden; 
+}
+
+.hero-content { position: relative; z-index: 2; text-align: center; }
+
+.hero-title { font-size: 4rem; font-weight: 700; margin-bottom: 1rem; }
+
+.hero-subtitle { font-size: 1.5rem; margin-bottom: 2rem; opacity: 0.9; }
+
+.hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+.wave { 
+  position: absolute; 
+  bottom: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 150px; 
+  color: white; 
+}
+
+/* ===================================
+   Decorative Circles
+   =================================== */
+
+.decorative-circle { 
+  position: absolute; 
+  border-radius: 50%; 
+  opacity: 0.1; 
+  background: white; 
+}
+
+.circle-1 { width: 300px; height: 300px; top: 10%; right: 10%; }
+
+.circle-2 { width: 200px; height: 200px; bottom: 20%; left: 5%; }
+
+.circle-dashboard-1 { 
+  width: 150px; 
+  height: 150px; 
+  top: 20%; 
+  right: 5%; 
+  background: #667eea; 
+}
+
+.circle-dashboard-2 { 
+  width: 100px; 
+  height: 100px; 
+  bottom: 30%; 
+  left: 10%; 
+  background: #764ba2; 
+}
+
+/* ===================================
+   Features Section
+   =================================== */
+
+.features { padding: 5rem 0; background: white; }
+
+.section-title { 
+  font-size: 2.5rem; 
+  text-align: center; 
+  margin-bottom: 3rem; 
+  color: #2d3748; 
+}
+
+.feature-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  gap: 2rem; 
+}
+
+.feature-card { 
+  background: white; 
+  padding: 2rem; 
+  border-radius: 12px; 
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1); 
+  text-align: center; 
+  transition: transform 0.3s; 
+}
+
+.feature-card:hover { transform: translateY(-5px); }
+
+.feature-icon { font-size: 3rem; margin-bottom: 1rem; }
+
+.feature-card h3 { font-size: 1.5rem; margin-bottom: 0.5rem; color: #2d3748; }
+
+.feature-card p { color: #718096; }
+
+/* ===================================
+   Auth Pages
+   =================================== */
+
+.auth-page { 
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+  display: flex; 
+  flex-direction: column; 
+  flex: 1; 
+  padding: 2rem 0; 
+}
+
+.auth-container { 
+  flex: 1; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  padding: 2rem 0; 
+}
+
+.auth-card { 
+  background: white; 
+  padding: 3rem; 
+  border-radius: 16px; 
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2); 
+  max-width: 450px; 
+  width: 100%; 
+}
+
+.auth-card h2 { font-size: 2rem; margin-bottom: 0.5rem; color: #2d3748; }
+
+.auth-subtitle { color: #718096; margin-bottom: 2rem; }
+
+.auth-footer { text-align: center; margin-top: 1.5rem; color: #718096; }
+
+.demo-credentials { 
+  margin-top: 1.5rem; 
+  padding: 1rem; 
+  background: #f7fafc; 
+  border-radius: 8px; 
+  font-size: 0.875rem; 
+  text-align: center; 
+  color: #4a5568; 
+}
+
+/* ===================================
+   Forms
+   =================================== */
+
+.form-group { margin-bottom: 1.5rem; }
+
+.form-group label { 
+  display: block; 
+  font-weight: 600; 
+  margin-bottom: 0.5rem; 
+  color: #2d3748; 
+}
+
+.form-group input, 
+.form-group textarea, 
+.form-group select { 
+  width: 100%; 
+  padding: 0.75rem; 
+  border: 2px solid #e2e8f0; 
+  border-radius: 8px; 
+  font-size: 1rem; 
+  font-family: inherit; 
+  transition: all 0.2s; 
+}
+
+.form-group input:focus, 
+.form-group textarea:focus, 
+.form-group select:focus { 
+  outline: none; 
+  border-color: #667eea; 
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1); 
+}
+
+.form-group input.error, 
+.form-group textarea.error, 
+.form-group select.error { 
+  border-color: #e53e3e; 
+}
+
+.form-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+
+.error-message { 
+  color: #e53e3e; 
+  font-size: 0.875rem; 
+  margin-top: 0.25rem; 
+  display: block; 
+}
+
+/* ===================================
+   Dashboard
+   =================================== */
+
+.dashboard-page { background: #f7fafc; }
+
+.dashboard-header { padding: 3rem 0 2rem; }
+
+.dashboard-header h2 { font-size: 2.5rem; color: #2d3748; margin-bottom: 0.5rem; }
+
+.page-description { color: #718096; font-size: 1.125rem; }
+
+.stats-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+  gap: 2rem; 
+  margin-bottom: 3rem; 
+  position: relative; 
+  z-index: 1; 
+}
+
+.stat-card { 
+  background: white; 
+  padding: 2rem; 
+  border-radius: 12px; 
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
+  display: flex; 
+  gap: 1.5rem; 
+  align-items: center; 
+  transition: transform 0.3s; 
+}
+
+.stat-card:hover { 
+  transform: translateY(-5px); 
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12); 
+}
+
+.stat-icon { 
+  font-size: 3rem; 
+  width: 60px; 
+  height: 60px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  border-radius: 12px; 
+  flex-shrink: 0; 
+}
+
+.stat-icon.total { background: #e6f2ff; }
+.stat-icon.open { background: #d4f4dd; }
+.stat-icon.progress { background: #fff4cc; }
+.stat-icon.closed { background: #e2e8f0; }
+
+.stat-content h3 { 
+  font-size: 1rem; 
+  color: #718096; 
+  margin-bottom: 0.25rem; 
+  font-weight: 600; 
+}
+
+.stat-number { font-size: 2.5rem; font-weight: 700; color: #2d3748; }
+
+/* ===================================
+   Tickets Page
+   =================================== */
+
+.tickets-page { background: #f7fafc; }
+
+.tickets-header { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 3rem 0 2rem; 
+  flex-wrap: wrap; 
+  gap: 1rem; 
+}
+
+.tickets-header h2 { font-size: 2.5rem; color: #2d3748; margin-bottom: 0.5rem; }
+
+.tickets-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); 
+  gap: 1.5rem; 
+  padding-bottom: 3rem; 
+}
+
+.ticket-card { 
+  background: white; 
+  padding: 1.5rem; 
+  border-radius: 12px; 
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
+  transition: all 0.3s; 
+}
+
+.ticket-card:hover { 
+  transform: translateY(-5px); 
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12); 
+}
+
+.ticket-header { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: start; 
+  margin-bottom: 1rem; 
+  gap: 1rem; 
+}
+
+.ticket-header h3 { 
+  font-size: 1.25rem; 
+  color: #2d3748; 
+  margin: 0; 
+  flex: 1; 
+  word-break: break-word; 
+}
+
+.status-badge { 
+  padding: 0.25rem 0.75rem; 
+  border-radius: 20px; 
+  font-size: 0.75rem; 
+  font-weight: 600; 
+  text-transform: capitalize; 
+  white-space: nowrap; 
+}
+
+.status-open { background: #d4f4dd; color: #22543d; }
+.status-progress { background: #fff4cc; color: #975a16; }
+.status-closed { background: #e2e8f0; color: #2d3748; }
+
+.ticket-description { color: #718096; margin-bottom: 1rem; line-height: 1.6; }
+
+.ticket-meta { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  font-size: 0.875rem; 
+  color: #718096; 
+  margin-bottom: 1rem; 
+  padding-top: 1rem; 
+  border-top: 1px solid #e2e8f0; 
+}
+
+.priority { text-transform: capitalize; font-weight: 600; }
+
+.ticket-actions { display: flex; gap: 0.5rem; justify-content: flex-end; }
+
+.empty-state { text-align: center; padding: 5rem 2rem; color: #718096; }
+
+.empty-state h3 { font-size: 1.5rem; color: #2d3748; margin-bottom: 0.5rem; }
+
+/* ===================================
+   Modal
+   =================================== */
+
+.modal-overlay { 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  background: rgba(0,0,0,0.5); 
+  display: none; 
+  align-items: center; 
+  justify-content: center; 
+  z-index: 1000; 
+  padding: 1rem; 
+}
+
+.modal-overlay.active { display: flex; }
+
+.modal { 
+  background: white; 
+  border-radius: 16px; 
+  max-width: 600px; 
+  width: 100%; 
+  max-height: 90vh; 
+  overflow-y: auto; 
+}
+
+.modal-header { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 1.5rem; 
+  border-bottom: 1px solid #e2e8f0; 
+}
+
+.modal-header h3 { font-size: 1.5rem; color: #2d3748; margin: 0; }
+
+.modal form { padding: 1.5rem; }
+
+.modal-actions { 
+  display: flex; 
+  gap: 1rem; 
+  justify-content: flex-end; 
+  padding-top: 1rem; 
+  border-top: 1px solid #e2e8f0; 
+  margin-top: 1rem; 
+}
+
+/* ===================================
+   Toast
+   =================================== */
+
+.toast { 
+  position: fixed; 
+  top: 2rem; 
+  right: 2rem; 
+  background: white; 
+  padding: 1rem 1.5rem; 
+  border-radius: 8px; 
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2); 
+  display: none; 
+  align-items: center; 
+  gap: 0.75rem; 
+  z-index: 2000; 
+  min-width: 300px; 
+}
+
+.toast.show { display: flex; animation: slideIn 0.3s ease; }
+
+@keyframes slideIn { 
+  from { transform: translateX(400px); opacity: 0; } 
+  to { transform: translateX(0); opacity: 1; } 
+}
+
+.toast.success { border-left: 4px solid #48bb78; }
+.toast.error { border-left: 4px solid #e53e3e; }
+
+.toast-close { 
+  background: none; 
+  border: none; 
+  cursor: pointer; 
+  padding: 0.25rem; 
+  margin-left: auto; 
+  color: #718096; 
+}
+
+/* ===================================
+   Footer
+   =================================== */
+
+.footer { 
+  background: #2d3748; 
+  color: white; 
+  padding: 2rem 0; 
+  margin-top: auto; 
+  text-align: center; 
+}
+
+.footer p { margin: 0.25rem 0; opacity: 0.8; font-size: 0.875rem; }
+
+/* ===================================
+   Responsive
+   =================================== */
+
+@media (max-width: 768px) {
+  .hero-title { font-size: 2.5rem; }
+  .hero-subtitle { font-size: 1.2rem; }
+  .hero { padding: 5rem 0 8rem; }
+  .container { padding: 0 1rem; }
+  .feature-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .tickets-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .tickets-header { flex-direction: column; align-items: stretch; }
+  .toast { right: 1rem; left: 1rem; min-width: auto; }
+  .modal { margin: 1rem; }
+  .auth-card { padding: 2rem 1.5rem; }
+  .dashboard-header h2, .tickets-header h2 { font-size: 2rem; }
+}
+
+@media (max-width: 480px) {
+  .hero-title { font-size: 2rem; }
+  .section-title { font-size: 2rem; }
+}
+
+/* ===================================
+   Accessibility
+   =================================== */
+
+*:focus-visible { 
+  outline: 3px solid #667eea; 
+  outline-offset: 2px; 
+}

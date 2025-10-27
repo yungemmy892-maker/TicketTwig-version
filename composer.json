@@ -1,0 +1,21 @@
+{
+    "name": "user/twig-test",
+    "description": "Multi-framework ticket management app - Twig/PHP implementation",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "TicketTwig-version",
+            "email": "yungemmy892@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.0",
+        "twig/twig": "^3.21"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}

@@ -1,0 +1,73 @@
+{% extends "base.twig" %}
+
+{% block title %}Sign Up - TicketFlow{% endblock %}
+
+{% block content %}
+
+<div class="page auth-page">
+    <div class="auth-container">
+        <div class="auth-card">
+            <h2>Create Account</h2>
+            <p class="auth-subtitle">Join TicketFlow today</p>
+            
+            <form method="POST" action="?page=signup">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        required
+                    />
+                    <span class="error-message" id="name-error" role="alert"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                    />
+                    <span class="error-message" id="email-error" role="alert"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        required
+                        minlength="6"
+                    />
+                    <span class="error-message" id="password-error" role="alert"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        required
+                    />
+                    <span class="error-message" id="confirmPassword-error" role="alert"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full">
+                    Sign Up
+                </button>
+            </form>
+
+            <p class="auth-footer">
+                Already have an account?
+                <a href="?page=login" class="link-btn">Log In</a>
+            </p>
+        </div>
+    </div>
+
+    {% include 'components/footer.twig' %}
+</div>
+{% endblock %}

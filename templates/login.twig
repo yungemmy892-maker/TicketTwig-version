@@ -1,0 +1,65 @@
+{% extends "base.twig" %}
+
+{% block title %}Login - TicketFlow{% endblock %}
+
+{% block content %}
+<div class="page auth-page">
+    {% if loginError %}
+    <div class="toast error show">
+        <span>✕</span>
+        <span>{{ loginError }}</span>
+        <button class="toast-close" onclick="this.parentElement.remove()">✕</button>
+    </div>
+    {% endif %}
+    
+    <div class="auth-container">
+        <div class="auth-card">
+            <h2>Welcome Back</h2>
+            <p class="auth-subtitle">Log in to manage your tickets</p>
+            
+            <form method="POST" action="?page=login">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        aria-describedby="email-error"
+                    />
+                    <span class="error-message" id="email-error" role="alert"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        required
+                        aria-describedby="password-error"
+                    />
+                    <span class="error-message" id="password-error" role="alert"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full">
+                    Log In
+                </button>
+            </form>
+
+            <p class="auth-footer">
+                Don't have an account?
+                <a href="?page=signup" class="link-btn">Sign Up</a>
+            </p>
+
+            <div class="demo-credentials">
+                <strong>Demo Credentials:</strong><br />
+                Email: demo@test.com<br />
+                Password: password123
+            </div>
+        </div>
+    </div>
+
+    {% include 'components/footer.twig' %}
+</div>
+{% endblock %}

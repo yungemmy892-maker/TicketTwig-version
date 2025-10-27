@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TicketFlow - Modern ticket management application">
+    <meta name="keywords" content="ticket management, twig, php, HNG Stage 2">
+    <meta name="author" content="Frontend Wizards Participant">
+    <title>{% block title %}TicketFlow - Ticket Management{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    {% block navbar %}{% endblock %}
+    
+    {% block content %}{% endblock %}
+    
+    <script src="{{ asset('js/app.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>
