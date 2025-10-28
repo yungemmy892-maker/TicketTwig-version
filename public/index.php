@@ -1,26 +1,13 @@
 <?php
-require_once __DIR__ . '/../vendor/autoload.php';
-
 session_start();
-
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/../templates');
-$twig = new \Twig\Environment($loader);
-
-// Simple data to pass to template
-$data = [
-    'name' => 'TicketTwig User',
-    'title' => 'Welcome to TicketTwig'
-];
-
-echo $twig->render('base.twig', $data);
 $requestUri = $_SERVER['REQUEST_URI'];
 $path = parse_url($requestUri, PHP_URL_PATH);
 
-// Serve static files (CSS, JS, images) directly
+// Serve static files (CSS, JS, images) directly - this must come BEFORE any output
 if (preg_match('/\.(css|js|png|jpg|jpeg|gif|ico|svg)$/', $path)) {
-    $filePath = __DIR__ . '/../public' . $path;
+    $filePath = __DIR__ . $path; // Remove '/../public' since we're already in public directory
     
     if (file_exists($filePath)) {
         $mimeTypes = [
@@ -56,7 +43,7 @@ $twig = new \Twig\Environment($loader, [
 
 // Add custom functions to Twig
 $twig->addFunction(new \Twig\TwigFunction('asset', function ($path) {
-    return '/TicketTwig-version/public/' . ltrim($path, '/');
+    return $path; // Just return the path directly for now
 }));
 
 // Simple routing
@@ -69,7 +56,8 @@ $isAuthenticated = isset($_SESSION['ticketapp_session']);
 // Protected pages
 $protectedPages = ['dashboard', 'tickets'];
 if (in_array($page, $protectedPages) && !$isAuthenticated) {
-    $page = 'login';
+    header('Location: ?page=login');
+    exit;
 }
 
 // Handle POST requests
@@ -140,15 +128,15 @@ $data = [
     'successMessage' => $successMessage
 ];
 
-// Render template
+// Render template - THIS SHOULD BE THE LAST THING THAT HAPPENS
 try {
     echo $twig->render($page . '.twig', $data);
 } catch (\Twig\Error\LoaderError $e) {
     // Page not found, redirect to landing
     header('Location: ?page=landing');
     exit;
-
 }
+
 
 
 
